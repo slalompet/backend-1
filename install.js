@@ -20,3 +20,15 @@ client.connect((err) => {
         console.log("Ansluten till databasen!");
     }
 });
+
+client.query (`
+    DROP TABLE IF EXISTS courses;
+    CREATE TABLE courses (
+        courseId SERIAL PRIMARY KEY,
+        courseCode VARCHAR(50) NOT NULL,
+        courseName VARCHAR(255) NOT NULL,
+        syllabus VARCHAR(255) NOT NULL,
+        progression VARCHAR(1) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+`);
