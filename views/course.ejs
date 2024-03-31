@@ -18,16 +18,20 @@
     </header>
     <main>
         <h1>Lägg till kurser</h1>
-        <form id="" method="post" action="">
+        <form id="course-form" method="post" action="/course">
             <label for="code">Kurskod</label>
-            <input type="text" id="" name="" required>
+            <input type="text" id="course-code" name="code" required>
             <label for="name">Kursnamn</label>
-            <input type="text" id="" name="" required>
+            <input type="text" id="course-name" name="name" required>
             <label for="progression">Progression</label>
-            <select id="" name="" required>
+            <select id="course-prog" name="progression" required>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
             <label for="syllabus">Kursplan</label>
-            <input type="text" id="" name="" required>
-            <button type="submit">Lägg till</button>
+            <input type="text" id="course-url" name="syllabus" required>
+            <button type="submit" id="submit-btn">Lägg till</button>
         </form>
     </main>    
 </body>

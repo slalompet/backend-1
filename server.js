@@ -36,6 +36,23 @@ app.get("/about", (req, res) => {
     res.render("about");
 });
 
+app.get("/course", (req, res) => {
+    res.render("course");
+});
+
+app.post("/course", async(req, res) => {
+    const courseCode = req.body.code;
+    const courseName = req.body.name;
+    const syllabus = req.body.syllabus;
+    const progression = req.body.progression;
+
+    //SQL query
+    const result = await client.query("insert into courses (courseCode, courseName, syllabus, progression) values ($1, $2, $3, $4) returning *", 
+    [courseCode, courseName, syllabus, progression]);
+
+    res.redirect("course");
+});
+
 // Start the server
 
 app.listen(process.env.PORT, () => {
