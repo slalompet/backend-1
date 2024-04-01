@@ -29,7 +29,15 @@ client.connect((err) => {
 
 // Route
 app.get("/", async(req, res) => {
-    res.render("index");
+
+    // read date from the database
+    client.query("select * from courses", (err, result) => {
+        if (err) {
+            console.log("Fel vid db-fråga");
+        } else {
+            res.render("index", {courses: result.rows});
+        }
+    });
 });
 
 app.get("/about", (req, res) => {

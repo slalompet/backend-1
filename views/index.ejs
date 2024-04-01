@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backend Moment 1</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reset.css">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="/">Visa kurser</a></li>
+                <li><a href="/">Hem</a></li>
                 <li><a href="/course">Lägg till kurser</a></li>
                 <li><a href="/about">Om</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Visa kurser</h1>
-        <ul id="course-list"></ul>
+        <h1>Befintliga kurser</h1>
+        <ul id="course-list">
+            <% courses.forEach(course => { %>
+                <li><%= course.coursecode %> - <%= course.coursename %> - <%= course.progression %> - <%= course.syllabus %></li>
+            <% }) %>
+        </ul>
     </main>
 </body>
 </html>
